@@ -6,6 +6,10 @@ import React from "react";
 import { Toaster, toast } from "sonner";
 import Footer from "../footer/Footer";
 
+const SERVICE = process.env.NEXT_PUBLIC_SERVICE;
+const TEMPLATE = process.env.NEXT_PUBLIC_TEMPLATE;
+const USER = process.env.NEXT_PUBLIC_USER;
+
 const Contact = () => {
   const initialValues = {
     name: "",
@@ -26,17 +30,15 @@ const Contact = () => {
       ) {
         return toast.info("¡Recuerda completar todos los campos!");
       } else {
-        emailjs
-          .send("NinaAlfajores", "NinaTemplate", values, "iesAYgUB80VJd0uX7")
-          .then(
-            (result) => {
-              toast.success("¡Nos pondremos en contacto muy pronto!");
-              document.getElementById("form").reset();
-            },
-            (error) => {
-              toast.error("¡Ops! Ocurrio un error. Intenta mas tarte");
-            }
-          );
+        emailjs.send(SERVICE, TEMPLATE, values, USER).then(
+          (result) => {
+            toast.success("¡Nos pondremos en contacto muy pronto!");
+            document.getElementById("form").reset();
+          },
+          (error) => {
+            toast.error("¡Ops! Ocurrio un error. Intenta mas tarte");
+          }
+        );
       }
     },
   });

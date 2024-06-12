@@ -44,7 +44,7 @@ const Contact = () => {
   });
 
   return (
-    <div className="pt-[108px] sm:pt-[146px] w-full h-screen overflow-y-scroll">
+    <div className="pt-[108px] sm:pt-[146px] w-full h-screen overflow-y-auto">
       <Toaster
         richColors
         duration={3000}

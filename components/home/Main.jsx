@@ -4,7 +4,7 @@ import React from "react";
 
 const Main = () => {
   return (
-    <div className="pt-[108px] sm:pt-[146px] w-full h-screen">
+    <div className="pt-[108px] sm:pt-[146px] w-full h-screen overflow-y-auto">
       <div className=" grid place-items-center w-full h-full bg-[url('/LeafBgImage.svg')] bg-bottom bg-cover">
         <div className="max-w-screen-lg w-full h-full p-2 grid place-items-center">
           <div className="space-y-12 text-center">

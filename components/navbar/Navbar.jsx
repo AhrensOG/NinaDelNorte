@@ -24,7 +24,9 @@ const Navbar = ({
         initial={{ y: "-100%" }}
         animate={{ y: 0 }}
         transition={{ duration: 0.25 }}
-        className={`w-full p-2 fixed top-0 left-0 grid place-items-center z-40 ${history ? "bg-transparent" : "bg-lightGray"}`}
+        className={`w-full p-2 fixed top-0 left-0 grid place-items-center z-40 ${
+          history ? "bg-lightBrown" : "bg-lightGray"
+        }`}
       >
         {/* MOBILE DESIGN */}
         <div className="w-full flex justify-between items-center sm:hidden">

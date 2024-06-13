@@ -11,6 +11,7 @@ import News from "@/components/news/News";
 export default function Home() {
   const [showSide, setShowSide] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [backgroundColor, setBackgroundColor] = useState("bg-lightGray");
 
   const [home, setHome] = useState(true);
   const [history, setHistory] = useState(false);
@@ -34,39 +35,37 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      if (typeof window !== "undefined" && historyRef.current) {
+        const historyHalfwayPoint =
+          historyRef.current.offsetTop + historyRef.current.clientHeight / 2;
+        setScrollY(window.scrollY);
+        if (
+          window.scrollY > window.innerHeight - 50 &&
+          window.scrollY < historyHalfwayPoint
+        ) {
+          setBackgroundColor("bg-lightBrown");
+        } else if (window.scrollY >= historyHalfwayPoint) {
+          setBackgroundColor("bg-lightGray");
+        } else {
+          setBackgroundColor("bg-lightGray");
+        }
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
   }, []);
-
-  const historyHalfwayPoint = historyRef.current
-    ? historyRef.current.offsetTop + historyRef.current.clientHeight / 2
-    : 0;
-
-  const backgroundColor =
-    scrollY > window.innerHeight - 50  && scrollY < historyHalfwayPoint
-      ? "bg-lightBrown"
-      : scrollY >= historyHalfwayPoint
-      ? "bg-lightGray"
-      : "bg-lightGray";
 
   return (
     <main className={`${backgroundColor} transition duration-500`}>
       <Navbar
         showSide={showSide}
         home={home}
-        history={
-          scrollY > window.innerHeight - 50 && scrollY < historyHalfwayPoint
-            ? true
-            : scrollY >= historyHalfwayPoint
-            ? false
-            : false
-        }
+        history={backgroundColor === "bg-lightBrown" ? true : false}
         products={products}
         contact={contact}
         news={news}

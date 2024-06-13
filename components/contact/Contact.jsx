@@ -44,14 +44,14 @@ const Contact = () => {
   });
 
   return (
-    <div className="pt-[108px] sm:pt-[146px] w-full h-screen overflow-y-auto">
+    <div id="contact" className="pt-[108px] sm:pt-[146px] w-full h-full">
       <Toaster
         richColors
         duration={3000}
         position="bottom-right"
         className="absolute"
       />
-      <div className=" grid place-items-center w-full h-full bg-[url('/LeafBgImage.svg')] bg-bottom bg-cover">
+      <div className=" grid place-items-center w-full h-screen bg-[url('/LeafBgImage.svg')] bg-bottom bg-cover">
         <div className="max-w-screen-lg w-full h-full p-2 grid place-items-center gap-4">
           <div className="space-y-6">
             <h2

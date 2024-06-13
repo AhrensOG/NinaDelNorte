@@ -2,19 +2,25 @@
 import Navbar from "@/components/navbar/Navbar";
 import Main from "@/components/home/Main";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import History from "@/components/history/History";
 import Products from "@/components/products/Products";
 import Contact from "@/components/contact/Contact";
+import News from "@/components/news/News";
 
 export default function Home() {
   const [showSide, setShowSide] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [backgroundColor, setBackgroundColor] = useState("bg-lightGray");
 
   const [home, setHome] = useState(true);
   const [history, setHistory] = useState(false);
   const [products, setProducts] = useState(false);
   const [contact, setContact] = useState(false);
   const [news, setNews] = useState(false);
+
+  const mainRef = useRef(null);
+  const historyRef = useRef(null);
 
   const handleMenu = (setValue, value, closeSide = false) => {
     setHome(false);
@@ -26,16 +32,40 @@ export default function Home() {
     setValue(value);
     closeSide ? setShowSide(false) : null;
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (typeof window !== "undefined" && historyRef.current) {
+        const historyHalfwayPoint =
+          historyRef.current.offsetTop + historyRef.current.clientHeight / 2;
+        setScrollY(window.scrollY);
+        if (
+          window.scrollY > window.innerHeight - 50 &&
+          window.scrollY < historyHalfwayPoint
+        ) {
+          setBackgroundColor("bg-lightBrown");
+        } else if (window.scrollY >= historyHalfwayPoint) {
+          setBackgroundColor("bg-lightGray");
+        } else {
+          setBackgroundColor("bg-lightGray");
+        }
+      }
+    };
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
+
   return (
-    <main
-      className={`${
-        history ? "bg-lightBrown transition duration-300" : null
-      }`}
-    >
+    <main className={`${backgroundColor} transition duration-500`}>
       <Navbar
         showSide={showSide}
         home={home}
-        history={history}
+        history={backgroundColor === "bg-lightBrown" ? true : false}
         products={products}
         contact={contact}
         news={news}
@@ -47,8 +77,8 @@ export default function Home() {
         setNews={setNews}
         handleMenu={handleMenu}
       />
-      <AnimatePresence>
-        {home ? (
+      <div ref={mainRef} className="h-screen">
+        <AnimatePresence>
           <motion.div
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
@@ -58,10 +88,10 @@ export default function Home() {
           >
             <Main />
           </motion.div>
-        ) : null}
-      </AnimatePresence>
-      <AnimatePresence>
-        {history ? (
+        </AnimatePresence>
+      </div>
+      <div ref={historyRef} className="h-screen">
+        <AnimatePresence>
           <motion.div
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
@@ -71,10 +101,32 @@ export default function Home() {
           >
             <History />
           </motion.div>
-        ) : null}
+        </AnimatePresence>
+      </div>
+      <AnimatePresence>
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "-100%" }}
+          transition={{ duration: 0.15 }}
+          className="w-full"
+        >
+          <Products />
+        </motion.div>
       </AnimatePresence>
       <AnimatePresence>
-        {products ? (
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "-100%" }}
+          transition={{ duration: 0.15 }}
+          className="w-full"
+        >
+          <Contact />
+        </motion.div>
+      </AnimatePresence>
+      <AnimatePresence>
+        {news ? (
           <motion.div
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
@@ -82,20 +134,7 @@ export default function Home() {
             transition={{ duration: 0.15 }}
             className="w-full"
           >
-            <Products />
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
-      <AnimatePresence>
-        {contact ? (
-          <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ duration: 0.15 }}
-            className="w-full"
-          >
-            <Contact />
+            <News />
           </motion.div>
         ) : null}
       </AnimatePresence>

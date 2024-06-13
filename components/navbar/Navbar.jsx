@@ -24,7 +24,7 @@ const Navbar = ({
         initial={{ y: "-100%" }}
         animate={{ y: 0 }}
         transition={{ duration: 0.25 }}
-        className={`w-full p-2 fixed top-0 left-0 grid place-items-center z-40 ${
+        className={`w-full p-2 fixed top-0 left-0 grid place-items-center z-40 transition duration-500 ${
           history ? "bg-lightBrown" : "bg-lightGray"
         }`}
       >
@@ -82,50 +82,60 @@ const Navbar = ({
             </Link>
           </div>
           <div className="flex justify-between items-center w-full max-w-screen-sm px-4 gap-1">
-            <button
-              onClick={() => handleMenu(setHome, true)}
-              className={`${
-                home ? "underline underline-offset-4" : ""
-              } uppercase`}
-            >
-              Inicio
-            </button>
+            <Link href={"/#main"}>
+              <button
+                onClick={() => handleMenu(setHome, true)}
+                className={`${
+                  home ? "underline underline-offset-4" : ""
+                } uppercase`}
+              >
+                Inicio
+              </button>
+            </Link>
 
-            <button
-              onClick={() => handleMenu(setHistory, true)}
-              className={`${
-                history ? "underline underline-offset-4" : ""
-              } uppercase`}
-            >
-              Historia
-            </button>
+            <Link href={"/#history"}>
+              <button
+                onClick={() => handleMenu(setHistory, true)}
+                className={`${
+                  history ? "underline underline-offset-4" : ""
+                } uppercase`}
+              >
+                Historia
+              </button>
+            </Link>
 
-            <button
-              onClick={() => handleMenu(setProducts, true)}
-              className={`${
-                products ? "underline underline-offset-4" : ""
-              } uppercase`}
-            >
-              Productos
-            </button>
+            <Link href={"/#products"}>
+              <button
+                onClick={() => handleMenu(setProducts, true)}
+                className={`${
+                  products ? "underline underline-offset-4" : ""
+                } uppercase`}
+              >
+                Productos
+              </button>
+            </Link>
 
-            <button
-              onClick={() => handleMenu(setContact, true)}
-              className={`${
-                contact ? "underline underline-offset-4" : ""
-              } uppercase`}
-            >
-              Contacto
-            </button>
+            <Link href={"/#contact"}>
+              <button
+                onClick={() => handleMenu(setContact, true)}
+                className={`${
+                  contact ? "underline underline-offset-4" : ""
+                } uppercase`}
+              >
+                Contacto
+              </button>
+            </Link>
 
-            <button
-              onClick={() => handleMenu(setNews, true)}
-              className={`${
-                news ? "underline underline-offset-4" : ""
-              } uppercase`}
-            >
-              Noticias
-            </button>
+            <Link href={"/#news"}>
+              <button
+                onClick={() => handleMenu(setNews, true)}
+                className={`${
+                  news ? "underline underline-offset-4" : ""
+                } uppercase`}
+              >
+                Noticias
+              </button>
+            </Link>
           </div>
           <div className="flex justify-center items-center gap-0.5 min-w-28">
             <Image
@@ -170,46 +180,56 @@ const Navbar = ({
                   </button>
                 </div>
                 <div className="w-full flex flex-col justify-center items-start px-6 gap-8 text-xl">
-                  <button
-                    onClick={() => handleMenu(setHome, true, true)}
-                    className={`${
-                      home ? "underline underline-offset-4" : ""
-                    } uppercase`}
-                  >
-                    Inicio
-                  </button>
-                  <button
-                    onClick={() => handleMenu(setHistory, true, true)}
-                    className={`${
-                      history ? "underline underline-offset-4" : ""
-                    } uppercase`}
-                  >
-                    Historia
-                  </button>
-                  <button
-                    onClick={() => handleMenu(setProducts, true, true)}
-                    className={`${
-                      products ? "underline underline-offset-4" : ""
-                    } uppercase`}
-                  >
-                    Productos
-                  </button>
-                  <button
-                    onClick={() => handleMenu(setContact, true, true)}
-                    className={`${
-                      contact ? "underline underline-offset-4" : ""
-                    } uppercase`}
-                  >
-                    Contacto
-                  </button>
-                  <button
-                    onClick={() => handleMenu(setNews, true, true)}
-                    className={`${
-                      news ? "underline underline-offset-4" : ""
-                    } uppercase`}
-                  >
-                    Noticias
-                  </button>
+                  <Link href={"/#main"}>
+                    <button
+                      onClick={() => handleMenu(setHome, true, true)}
+                      className={`${
+                        home ? "underline underline-offset-4" : ""
+                      } uppercase`}
+                    >
+                      Inicio
+                    </button>
+                  </Link>
+                  <Link href={"/#history"}>
+                    <button
+                      onClick={() => handleMenu(setHistory, true, true)}
+                      className={`${
+                        history ? "underline underline-offset-4" : ""
+                      } uppercase`}
+                    >
+                      Historia
+                    </button>
+                  </Link>
+                  <Link href={"/#products"}>
+                    <button
+                      onClick={() => handleMenu(setProducts, true, true)}
+                      className={`${
+                        products ? "underline underline-offset-4" : ""
+                      } uppercase`}
+                    >
+                      Productos
+                    </button>
+                  </Link>
+                  <Link href={"/#contact"}>
+                    <button
+                      onClick={() => handleMenu(setContact, true, true)}
+                      className={`${
+                        contact ? "underline underline-offset-4" : ""
+                      } uppercase`}
+                    >
+                      Contacto
+                    </button>
+                  </Link>
+                  <Link href={"/#news"}>
+                    <button
+                      onClick={() => handleMenu(setNews, true, true)}
+                      className={`${
+                        news ? "underline underline-offset-4" : ""
+                      } uppercase`}
+                    >
+                      Noticias
+                    </button>
+                  </Link>
                 </div>
               </div>
             </motion.div>

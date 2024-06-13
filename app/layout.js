@@ -9,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${RobotoFont.className} bg-lightGray overflow-hidden`}>{children}</body>
+      <body className={`${RobotoFont.className} bg-lightGray`}>{children}</body>
     </html>
   );
 }

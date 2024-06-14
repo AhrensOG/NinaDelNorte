@@ -1,23 +1,27 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
-const Navbar = ({
-  showSide,
-  home,
-  history,
-  products,
-  contact,
-  news,
-  setShowSide,
-  handleMenu,
-  setHome,
-  setHistory,
-  setProducts,
-  setContact,
-  setNews,
-}) => {
+const Navbar = ({ historyBg }) => {
+  const [showSide, setShowSide] = useState(false);
+
+  const [home, setHome] = useState(true);
+  const [history, setHistory] = useState(false);
+  const [products, setProducts] = useState(false);
+  const [contact, setContact] = useState(false);
+  const [news, setNews] = useState(false);
+
+  const handleMenu = (setValue, value, closeSide = false) => {
+    setHome(false);
+    setHistory(false);
+    setProducts(false);
+    setContact(false);
+    setNews(false);
+
+    setValue(value);
+    closeSide ? setShowSide(false) : null;
+  };
   return (
     <AnimatePresence>
       <motion.nav
@@ -25,7 +29,7 @@ const Navbar = ({
         animate={{ y: 0 }}
         transition={{ duration: 0.25 }}
         className={`w-full p-2 fixed top-0 left-0 grid place-items-center z-40 transition duration-500 ${
-          history ? "bg-lightBrown" : "bg-lightGray"
+          historyBg ? "bg-lightBrown" : "bg-lightGray"
         }`}
       >
         {/* MOBILE DESIGN */}
@@ -97,7 +101,7 @@ const Navbar = ({
               <button
                 onClick={() => handleMenu(setHistory, true)}
                 className={`${
-                  history ? "underline underline-offset-4" : ""
+                  historyBg ? "underline underline-offset-4" : ""
                 } uppercase`}
               >
                 Historia
@@ -115,17 +119,6 @@ const Navbar = ({
               </button>
             </Link>
 
-            <Link href={"/#contact"}>
-              <button
-                onClick={() => handleMenu(setContact, true)}
-                className={`${
-                  contact ? "underline underline-offset-4" : ""
-                } uppercase`}
-              >
-                Contacto
-              </button>
-            </Link>
-
             <Link href={"/#news"}>
               <button
                 onClick={() => handleMenu(setNews, true)}
@@ -134,6 +127,17 @@ const Navbar = ({
                 } uppercase`}
               >
                 Noticias
+              </button>
+            </Link>
+
+            <Link href={"/#contact"}>
+              <button
+                onClick={() => handleMenu(setContact, true)}
+                className={`${
+                  contact ? "underline underline-offset-4" : ""
+                } uppercase`}
+              >
+                Contacto
               </button>
             </Link>
           </div>
@@ -194,7 +198,7 @@ const Navbar = ({
                     <button
                       onClick={() => handleMenu(setHistory, true, true)}
                       className={`${
-                        history ? "underline underline-offset-4" : ""
+                        historyBg ? "underline underline-offset-4" : ""
                       } uppercase`}
                     >
                       Historia

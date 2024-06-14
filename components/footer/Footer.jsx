@@ -5,6 +5,9 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="bg-lightBrown flex flex-col-reverse sm:flex-row  justify-between items-center p-4 gap-8">
+      <span className="text-white text-sm text-center block sm:hidden">
+        2024 ALFAJORES NINA -Todos los derechos reservados
+      </span>
       <div className="grid grid-cols-2 grid-rows-3 place-items-center gap-x-10 gap-y-2 max-w-[340px]">
         <Image
           src={"/LogoSenora.svg"}
@@ -66,7 +69,7 @@ const Footer = () => {
             />
           </Link>
         </div>
-        <span className="text-white text-sm text-center">
+        <span className="text-white text-sm text-center hidden sm:block">
           2024 ALFAJORES NINA -Todos los derechos reservados
         </span>
       </div>

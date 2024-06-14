@@ -3,7 +3,8 @@ import Navbar from "@/components/navbar/Navbar";
 import { AlegreyaFont } from "@/fonts";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Toaster, toast } from "sonner";
 
 const Detail = ({ params }) => {
   const posts = [
@@ -30,11 +31,29 @@ const Detail = ({ params }) => {
     },
   ];
 
+  const [currentUrl, setCurrentUrl] = useState("");
+
+  useEffect(() => {
+    setCurrentUrl(window.location.href);
+  }, []);
+
+  const handleCopyLink = () => {
+    navigator.clipboard
+      .writeText(currentUrl)
+      .then(() => {
+        toast.success("Link copiado!");
+      })
+      .catch((err) => {
+        toast.error("No se pudo copiar el Link!");
+      });
+  };
+
   return (
     <main>
+      <Toaster richColors={true} duration={2000}/>
       <Navbar />
       <div className="pt-[108px] sm:pt-[150px] w-full h-full">
-        <div className="grid place-items-center w-full h-full gap-8">
+        <div className="grid place-items-center w-full h-full gap-8 p-2">
           {posts.map((p) => {
             if (decodeURIComponent(params.title) === p.title) {
               return (
@@ -48,7 +67,7 @@ const Detail = ({ params }) => {
                     {p.description}
                   </p>
                   <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
-                    <div className="relative sm:w-[450px] sm:h-[400px] w-[260px] h-[200px]">
+                    <div className="relative sm:w-[450px] sm:h-[400px] w-[280px] h-[230px]">
                       <Image
                         className="object-cover"
                         src={p.img1}
@@ -56,7 +75,7 @@ const Detail = ({ params }) => {
                         alt="Alfajor Nina Del Norte"
                       />
                     </div>
-                    <div className="relative sm:w-[450px] sm:h-[400px] w-[260px] h-[200px]">
+                    <div className="relative sm:w-[450px] sm:h-[400px] w-[280px] h-[230px]">
                       <Image
                         className="object-cover"
                         src={p.img2}
@@ -66,15 +85,24 @@ const Detail = ({ params }) => {
                     </div>
                   </div>
                   <div className="flex justify-center items-center gap-2 sm:gap-8">
-                    <Link href={"/"} className="border-2 p-4 rounded-full">
+                    <button
+                      onClick={handleCopyLink}
+                      className="border-2 p-4 rounded-full"
+                    >
                       <Image
                         src={"/ShareIcon.svg"}
                         width={35}
                         height={35}
                         alt="Share Icon"
                       />
-                    </Link>
-                    <Link href={"/"} className="border-2 p-1 rounded-full">
+                    </button>
+                    <Link
+                      href={
+                        "https://www.instagram.com/ninadelnortealfajores?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                      }
+                      target="_blank"
+                      className="border-2 p-1 rounded-full"
+                    >
                       <Image
                         src={"/BlackInstagramIcon.svg"}
                         width={60}

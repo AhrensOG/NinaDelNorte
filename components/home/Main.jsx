@@ -4,15 +4,15 @@ import React from "react";
 
 const Main = () => {
   return (
-    <div id="main" className="pt-[108px] sm:pt-[150px] w-full h-screen">
+    <div id="main" className="pt-[108px] sm:pt-[150px] w-full h-screen sm:h-auto">
       <div className="grid place-items-center w-full h-full">
         <div className="w-full h-full px-2 grid place-items-center">
           <div className="space-y-12 text-center max-w-screen-lg w-full">
-            <h2 className="text-2xl sm:text-4xl uppercase text-center font-medium text-lightBrown drop-shadow-md">
+            <h2 className="text-2xl xs:text-3xl sm:text-5xl uppercase text-center font-medium text-lightBrown drop-shadow-md">
               Alfajores con aroma <br /> del norte
             </h2>
             <h4
-              className={`${GreatVibesFont.className} text-2xl text-darkBlue`}
+              className={`${GreatVibesFont.className} text-2xl xs:text-3xl sm:text-4xl text-darkBlue`}
             >
               Disfruta la dulzura de la Naturaleza{" "}
             </h4>

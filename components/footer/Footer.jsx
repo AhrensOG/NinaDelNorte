@@ -83,7 +83,7 @@ const Footer = () => {
         </div>
         <div className="flex jus items-center gap-2">
           <Image src={"/EmailIcon.svg"} width={36} height={36} alt="Logo" />
-          <span className="text-lg font-medium">ninaalfajores@gmail.com</span>
+          <span className="text-lg font-medium break-all">ninaalfajores@gmail.com</span>
         </div>
         <div className="flex jus items-center gap-2">
           <Image src={"/LocationIcon.svg"} width={36} height={36} alt="Logo" />

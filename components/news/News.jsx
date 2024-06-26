@@ -10,7 +10,7 @@ const News = () => {
         <div className="max-w-screen-lg w-full h-full p-2 grid place-items-center gap-8">
           <div className="space-y-12 text-center">
             <h2
-              className={`${GreatVibesFont.className} text-5xl text-lightBrown`}
+              className={`${GreatVibesFont.className} text-5xl sm:text-6xl text-lightBrown`}
             >
               Novedades
             </h2>

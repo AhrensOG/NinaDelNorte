@@ -126,7 +126,7 @@ const Navbar = ({ historyBg }) => {
                   news ? "underline underline-offset-4" : ""
                 } uppercase`}
               >
-                Noticias
+                Novedades
               </button>
             </Link>
 
@@ -143,7 +143,7 @@ const Navbar = ({ historyBg }) => {
           </div>
           <div className="flex justify-center items-center gap-0.5 min-w-28">
             <Image
-              src={"/ArgFlag.svg"}
+              src={"/WaveArgFlag.svg"}
               width={55}
               height={55}
               alt="Argentina Flag"

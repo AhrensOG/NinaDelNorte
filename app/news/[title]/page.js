@@ -1,5 +1,6 @@
 "use client";
 import Navbar from "@/components/navbar/Navbar";
+import SocialNetworkButtons from "@/components/socialButtons/SocialNetworkButtons";
 import { AlegreyaFont } from "@/fonts";
 import Image from "next/image";
 import Link from "next/link";
@@ -50,7 +51,7 @@ const Detail = ({ params }) => {
 
   return (
     <main>
-      <Toaster richColors={true} duration={2000}/>
+      <Toaster richColors={true} duration={2000} />
       <Navbar />
       <div className="pt-[108px] sm:pt-[150px] w-full h-full">
         <div className="grid place-items-center w-full h-full gap-8 p-2">
@@ -173,6 +174,7 @@ const Card = ({ title, img, description }) => {
       >
         <Link href={`/news/${title}`}>{description}</Link>
       </span>
+      <SocialNetworkButtons />
     </div>
   );
 };

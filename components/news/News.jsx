@@ -1,6 +1,7 @@
 import { GreatVibesFont } from "@/fonts";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const News = () => {
@@ -49,35 +50,35 @@ const News = () => {
 export default News;
 
 const Card = ({ title, description, img, reverse = false }) => {
+  const router = useRouter();
   return (
-    <div className="grid place-items-center">
+    <div
+      onClick={() => router.push(`/news/${title}`)}
+      className="grid place-items-center cursor-pointer"
+    >
       <div
         className={`relative flex ${
           reverse ? "flex-row-reverse" : null
         } justify-center items-start gap-2 bg-white shadow-lg rounded-lg min-h-[212px] sm:h-[380px] h-full`}
       >
         <div className="w-full min-w-[165px] max-w-[300px] max-h-[380px] min-h-[210px] h-full relative">
-          <Link href={`/news/${title}`}>
-            <Image
-              src={img}
-              fill
-              alt="Alfajor Nina Del Norte"
-              className="object-cover"
-            />
-          </Link>
+          <Image
+            src={img}
+            fill
+            alt="Alfajor Nina Del Norte"
+            className="object-cover"
+          />
         </div>
 
         <div className="flex flex-col h-full text-center p-2 sm:py-6 space-y-2">
-          <Link href={`/news/${title}`}>
-            <h3 className="text-xs xs:text-base sm:text-3xl">{title}</h3>
-          </Link>
+          <h3 className="text-xs xs:text-base sm:text-3xl">{title}</h3>
+
           <p className="text-xs text-justify xs:text-sm sm:text-2xl h-full flex flex-col gap-2 items-center justify-center">
             {description}
-            <Link href={`/news/${title}`}>
-              <button className="text-lightBrown underline underline-offset-4">
-                Ver
-              </button>
-            </Link>
+
+            <button className="text-lightBrown underline underline-offset-4">
+              Ver
+            </button>
           </p>
         </div>
       </div>

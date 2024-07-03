@@ -37,7 +37,7 @@ const Navbar = ({ historyBg }) => {
         {/* MOBILE DESIGN */}
         <div className="w-full flex justify-between items-center sm:hidden">
           <div className="flex flex-col justify-center items-center">
-            <div className="rounded-fully">
+            <div className="rounded-full overflow-hidden">
               <Image
                 src={"/WaveArgFlag.svg"}
                 width={30}
@@ -145,12 +145,14 @@ const Navbar = ({ historyBg }) => {
             </Link>
           </div>
           <div className="flex justify-center items-center gap-0.5 min-w-28">
-            <Image
-              src={"/WaveArgFlag.svg"}
-              width={55}
-              height={55}
-              alt="Argentina Flag"
-            />
+            <div className="rounded-full overflow-hidden">
+              <Image
+                src={"/WaveArgFlag.svg"}
+                width={55}
+                height={55}
+                alt="Argentina Flag"
+              />
+            </div>
             <span className="text-base font-light text-center ">
               Industria <br /> Argentina
             </span>

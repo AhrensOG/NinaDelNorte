@@ -2,7 +2,7 @@ import { GreatVibesFont } from "@/fonts";
 import emailjs from "@emailjs/browser";
 import { useFormik } from "formik";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { Toaster, toast } from "sonner";
 import Footer from "../footer/Footer";
 
@@ -11,8 +11,10 @@ const TEMPLATE = process.env.NEXT_PUBLIC_TEMPLATE;
 const USER = process.env.NEXT_PUBLIC_USER;
 
 const Contact = () => {
+  const [userType, setUserType]= useState("")
   const initialValues = {
     name: "",
+    type: "",
     phone: "",
     email: "",
     message: "",
@@ -24,10 +26,12 @@ const Contact = () => {
     onSubmit: (values) => {
       if (
         values.name === "" ||
+        values.type === "" ||
         values.phone === "" ||
         values.email === "" ||
         values.message === ""
       ) {
+        console.log(values)
         return toast.info("¡Recuerda completar todos los campos!");
       } else {
         emailjs.send(SERVICE, TEMPLATE, values, USER).then(
@@ -42,6 +46,12 @@ const Contact = () => {
       }
     },
   });
+
+  const handleSelectChange = (event) => {
+    const { value } = event.target;
+    setUserType(value);
+    formik.setFieldValue('type', value);
+  };
 
   return (
     <div id="contact" className="pt-[108px] sm:pt-[146px] w-full h-full">
@@ -62,7 +72,7 @@ const Contact = () => {
           </div>
 
           <div className="w-full grid place-items-center bg-[url('/LeafBgImage.svg')] bg-top">
-            <div className="max-w-screen-lg">
+            <div className="max-w-screen-lg w-full grid place-items-center">
               <div className="max-w-screen-sm w-full flex flex-col justify-center items-center gap-4 relative sm:pb-10 pb-4">
                 <form
                   id="form"
@@ -76,6 +86,17 @@ const Contact = () => {
                     className="w-full py-1 px-2 border border-lightBrown rounded-lg outline-none text-lg bg-lightGray shadow-lg"
                     placeholder="Nombre y Apellido"
                   />
+                  <select
+                    name="type"
+                    onChange={handleSelectChange}
+                    className="w-full py-1 px-2 border border-lightBrown rounded-lg outline-none text-lg bg-lightGray shadow-lg"
+                  >
+                    <option value="" disabled selected>
+                      Seleccione tipo de usuario
+                    </option>
+                    <option value="revendedor">Revendedor</option>
+                    <option value="mayorista">Mayorista</option>
+                  </select>
                   <input
                     type="number"
                     name="phone"

@@ -4,9 +4,11 @@ import Main from "@/components/home/Main";
 import { useEffect, useRef, useState } from "react";
 import History from "@/components/history/History";
 import Products from "@/components/products/Products";
-// import Contact from "@/components/contact/Contact";
-import News from "@/components/news/News";
 import Footer from "@/components/footer/Footer";
+import Link from "next/link";
+import { GreatVibesFont } from "@/fonts";
+import Carousel from "@/components/carousel/Carousel";
+import SocialNetworkButtons from "@/components/socialButtons/SocialNetworkButtons";
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -52,9 +54,25 @@ export default function Home() {
         <History />
       </div>
       <Products />
-      <News />
-      {/* <Contact /> */}
-      <Footer/>
+      <Carousel />
+      <div
+        className="pt-[10px] sm:pt-[14px] w-full grid place-items-center py-16 gap-10"
+      >
+        <h2
+          className={`text-5xl sm:text-6xl text-center font-medium ${GreatVibesFont.className} text-lightBrown rounded-md p-2`}
+        >
+          ¡Sumate al Equipo!
+        </h2>
+        <Link href={"/contact"}>
+          <button
+            className={`text-xl xs:text-3xl sm:text-4xl text-darkBlue border-2 px-6 border-darkBlue rounded-md p-2`}
+          >
+            ¡Unite!
+          </button>
+        </Link>
+      </div>
+      <Footer />
+      <SocialNetworkButtons />
     </main>
   );
 }

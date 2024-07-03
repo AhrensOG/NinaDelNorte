@@ -1,12 +1,14 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
 const Navbar = ({ historyBg }) => {
+  const path = usePathname();
   const [showSide, setShowSide] = useState(false);
 
-  const [home, setHome] = useState(true);
+  const [home, setHome] = useState(false);
   const [history, setHistory] = useState(false);
   const [products, setProducts] = useState(false);
   const [contact, setContact] = useState(false);
@@ -35,12 +37,14 @@ const Navbar = ({ historyBg }) => {
         {/* MOBILE DESIGN */}
         <div className="w-full flex justify-between items-center sm:hidden">
           <div className="flex flex-col justify-center items-center">
-            <Image
-              src={"/MiniArgFlag.svg"}
-              width={30}
-              height={30}
-              alt="Argentina Flag"
-            />
+            <div className="rounded-fully">
+              <Image
+                src={"/WaveArgFlag.svg"}
+                width={30}
+                height={30}
+                alt="Argentina Flag"
+              />
+            </div>
             <span className="text-xs font-light text-center">
               Industria <br /> Argentina
             </span>
@@ -86,17 +90,6 @@ const Navbar = ({ historyBg }) => {
             </Link>
           </div>
           <div className="flex justify-between items-center w-full max-w-screen-sm px-4 gap-1">
-            <Link href={"/#main"}>
-              <button
-                onClick={() => handleMenu(setHome, true)}
-                className={`${
-                  home ? "underline underline-offset-4" : ""
-                } uppercase`}
-              >
-                Inicio
-              </button>
-            </Link>
-
             <Link href={"/#history"}>
               <button
                 onClick={() => handleMenu(setHistory, true)}
@@ -119,7 +112,7 @@ const Navbar = ({ historyBg }) => {
               </button>
             </Link>
 
-            <Link href={"/#news"}>
+            <Link href={"/news"}>
               <button
                 onClick={() => handleMenu(setNews, true)}
                 className={`${
@@ -130,6 +123,16 @@ const Navbar = ({ historyBg }) => {
               </button>
             </Link>
 
+            <Link href={"/#main"}>
+              <button
+                onClick={() => handleMenu(setHome, true)}
+                className={`${
+                  home ? "underline underline-offset-4" : ""
+                } uppercase`}
+              >
+                Comunidad
+              </button>
+            </Link>
             <Link href={"/#contact"}>
               <button
                 onClick={() => handleMenu(setContact, true)}
@@ -148,7 +151,7 @@ const Navbar = ({ historyBg }) => {
               height={55}
               alt="Argentina Flag"
             />
-            <span className="text-xs font-light text-center ">
+            <span className="text-base font-light text-center ">
               Industria <br /> Argentina
             </span>
           </div>
@@ -184,16 +187,6 @@ const Navbar = ({ historyBg }) => {
                   </button>
                 </div>
                 <div className="w-full flex flex-col justify-center items-start px-6 gap-8 text-xl">
-                  <Link href={"/#main"}>
-                    <button
-                      onClick={() => handleMenu(setHome, true, true)}
-                      className={`${
-                        home ? "underline underline-offset-4" : ""
-                      } uppercase`}
-                    >
-                      Inicio
-                    </button>
-                  </Link>
                   <Link href={"/#history"}>
                     <button
                       onClick={() => handleMenu(setHistory, true, true)}
@@ -224,6 +217,16 @@ const Navbar = ({ historyBg }) => {
                       Contacto
                     </button>
                   </Link>
+                  <Link href={"/#main"}>
+                    <button
+                      onClick={() => handleMenu(setHome, true, true)}
+                      className={`${
+                        home ? "underline underline-offset-4" : ""
+                      } uppercase`}
+                    >
+                      Comunidad
+                    </button>
+                  </Link>
                   <Link href={"/#news"}>
                     <button
                       onClick={() => handleMenu(setNews, true, true)}
@@ -231,7 +234,7 @@ const Navbar = ({ historyBg }) => {
                         news ? "underline underline-offset-4" : ""
                       } uppercase`}
                     >
-                      Noticias
+                      Novedades
                     </button>
                   </Link>
                 </div>

@@ -11,7 +11,7 @@ const TEMPLATE = process.env.NEXT_PUBLIC_TEMPLATE;
 const USER = process.env.NEXT_PUBLIC_USER;
 
 const Contact = () => {
-  const [userType, setUserType]= useState("")
+  const [userType, setUserType] = useState("");
   const initialValues = {
     name: "",
     type: "",
@@ -31,7 +31,6 @@ const Contact = () => {
         values.email === "" ||
         values.message === ""
       ) {
-        console.log(values)
         return toast.info("¡Recuerda completar todos los campos!");
       } else {
         emailjs.send(SERVICE, TEMPLATE, values, USER).then(
@@ -50,7 +49,7 @@ const Contact = () => {
   const handleSelectChange = (event) => {
     const { value } = event.target;
     setUserType(value);
-    formik.setFieldValue('type', value);
+    formik.setFieldValue("type", value);
   };
 
   return (
@@ -94,8 +93,8 @@ const Contact = () => {
                     <option value="" disabled selected>
                       Seleccione tipo de usuario
                     </option>
-                    <option value="revendedor">Revendedor</option>
-                    <option value="mayorista">Mayorista</option>
+                    <option value="Revendedor">Revendedor</option>
+                    <option value="Mayorista">Mayorista</option>
                   </select>
                   <input
                     type="number"

@@ -123,7 +123,7 @@ const Navbar = ({ historyBg }) => {
               </button>
             </Link>
 
-            <Link href={"/#main"}>
+            <Link href={"/community"}>
               <button
                 onClick={() => handleMenu(setHome, true)}
                 className={`${

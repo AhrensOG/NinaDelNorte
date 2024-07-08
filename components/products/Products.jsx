@@ -69,6 +69,7 @@ const Products = () => {
                 <ProductCard
                   title={"Alfajor de Vino"}
                   img={"/AlfajorVino.svg"}
+                  bgImg={"grape"}
                   description={
                     "Alfajor  relleno de mermelada  de  vino tinto con baño de repostería semiamargo. "
                   }
@@ -76,6 +77,7 @@ const Products = () => {
                 <ProductCard
                   title={"Alfajor de Maracuya"}
                   img={"/AlfajorMaracuya.svg"}
+                  bgImg={"maracuya"}
                   description={
                     "Alfajor  relleno de baño de repostería fantasía blanco y maracuyá cubierto de repostería semiamargo. "
                   }
@@ -83,6 +85,7 @@ const Products = () => {
                 <ProductCard
                   title={"Alfajor de Frutilla"}
                   img={"/AlfajorFrutilla.svg"}
+                  bgImg={"strawberry"}
                   description={
                     "Alfajor  relleno de mermelada de frutilla con baño de repostería semiamargo."
                   }
@@ -90,6 +93,7 @@ const Products = () => {
                 <ProductCard
                   title={"Alfajor de Café"}
                   img={"/AlfajorFrutilla.svg"}
+                  bgImg={"coffee"}
                   description={
                     "Alfajor  relleno de mermelada sabor café con baño de repostería semiamargo."
                   }

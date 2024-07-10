@@ -40,7 +40,7 @@ const SocialNetworkButtons = () => {
             }
             className="bg-white p-2 rounded-full hover:bg-[#1877F2] transition duration-300 grid place-items-center"
           >
-            <Image src={"/igIcon.svg"} width={32} height={35} alt="igIcon" />
+            <Image src={"/IgIcon.svg"} width={32} height={35} alt="igIcon" />
           </Link>
         </div>
       )}

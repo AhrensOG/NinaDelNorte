@@ -90,6 +90,16 @@ const Navbar = ({ historyBg }) => {
             </Link>
           </div>
           <div className="flex justify-between items-center w-full max-w-screen-sm px-4 gap-1">
+          <Link href={"/"}>
+              <button
+                onClick={() => handleMenu(setHistory, true)}
+                className={`${
+                  historyBg ? "underline underline-offset-4" : ""
+                } uppercase`}
+              >
+                Inicio
+              </button>
+            </Link>
             <Link href={"/#history"}>
               <button
                 onClick={() => handleMenu(setHistory, true)}

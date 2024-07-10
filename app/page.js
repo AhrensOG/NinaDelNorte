@@ -53,24 +53,24 @@ export default function Home() {
       <div ref={historyRef}>
         <History />
       </div>
-      <Products />
-      <Carousel />
       <div
-        className="pt-[10px] sm:pt-[14px] w-full grid place-items-center py-16 gap-10"
+        className="pt-[10px] sm:pt-[90px] w-full grid place-items-center py-16 gap-10"
       >
         <h2
-          className={`text-5xl sm:text-6xl text-center font-medium ${GreatVibesFont.className} text-lightBrown rounded-md p-2`}
+          className={`text-6xl sm:text-7xl text-center font-medium ${GreatVibesFont.className} text-lightBrown rounded-md p-2`}
         >
-          ¡Sumate al Equipo!
+          ¡Sumate como Revendedor!
         </h2>
         <Link href={"/contact"}>
           <button
             className={`text-xl xs:text-3xl sm:text-4xl text-darkBlue border-2 px-6 border-darkBlue rounded-md p-2`}
           >
-            ¡Unite!
+            ¡SUMATE!
           </button>
         </Link>
       </div>
+      <Products />
+      <Carousel />
       <Footer />
       <SocialNetworkButtons />
     </main>

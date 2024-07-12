@@ -1,13 +1,14 @@
-import { GreatVibesFont } from "@/fonts";
+import { AlegreyaFont, GreatVibesFont } from "@/fonts";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
+import Footer from "../footer/Footer";
 
 const News = () => {
   return (
     <div id="news" className="pt-[108px] sm:pt-[146px] w-full h-full">
-      <div className=" grid place-items-center w-full h-full bg-bottom bg-cover pb-20">
+      {/* <div className=" grid place-items-center w-full h-full bg-bottom bg-cover pb-20">
         <div className="max-w-screen-lg w-full h-full p-2 grid place-items-center gap-8">
           <div className="space-y-12 text-center">
             <h2
@@ -42,7 +43,15 @@ const News = () => {
             />
           </div>
         </div>
+      </div> */}
+      <div className="w-full h-[50vh] grid place-items-center">
+        <h1
+          className={`${AlegreyaFont.className} text-2xl xs:text-3xl sm:text-5xl text-black/50 font-bold `}
+        >
+          PROXIMAMENTE
+        </h1>
       </div>
+      <Footer />
     </div>
   );
 };

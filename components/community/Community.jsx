@@ -13,7 +13,7 @@ const Community = () => {
   ];
   return (
     <div id="contact" className="pt-[108px] sm:pt-[146px] w-full h-full">
-      <div className="px-2 sm:px-0 grid place-items-center w-full">
+      {/* <div className="px-2 sm:px-0 grid place-items-center w-full">
         <div className="max-w-screen-lg w-full sm:space-y-16 md:space-y-24">
           <Flicking align="prev" circular={true} plugins={plugins}>
             <div className="relative w-full">
@@ -59,6 +59,9 @@ const Community = () => {
             />
           </div>
         </div>
+      </div> */}
+      <div className="w-full h-[50vh] grid place-items-center">
+        <h1 className={`${AlegreyaFont.className} text-2xl xs:text-3xl sm:text-5xl text-black/50 font-bold `}>PROXIMAMENTE</h1>
       </div>
       <Footer />
     </div>

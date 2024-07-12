@@ -53,9 +53,8 @@ export default function Home() {
       <div ref={historyRef}>
         <History />
       </div>
-      <div
-        className="pt-[10px] sm:pt-[90px] w-full grid place-items-center py-16 gap-10"
-      >
+      <Products />
+      <div id="contact" className="pt-[108px] sm:pt-[146px] w-full grid place-items-center py-16 gap-10">
         <h2
           className={`text-6xl sm:text-7xl text-center font-medium ${GreatVibesFont.className} text-lightBrown rounded-md p-2`}
         >
@@ -69,8 +68,7 @@ export default function Home() {
           </button>
         </Link>
       </div>
-      <Products />
-      <Carousel />
+      {/* <Carousel /> */}
       <Footer />
       <SocialNetworkButtons />
     </main>

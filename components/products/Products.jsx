@@ -12,7 +12,7 @@ const Products = () => {
     document.getElementById("content").scrollLeft += 500;
   };
   return (
-    <div id="products" className="pt-[108px] sm:pt-[58px] w-full h-screen">
+    <div id="products" className="pt-[108px] sm:pt-[146px] w-full h-screen">
       <div className=" grid place-items-center w-full h-full">
         <div className="w-full h-full px-2 grid place-items-center gap-4">
           <div className="space-y-6 max-w-screen-lg w-full">

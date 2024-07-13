@@ -14,22 +14,34 @@ const History = () => {
               Historia
             </h2>
             <p className="text-sm text-justify text-white font-light max-w-[375px] sm:max-w-none md:text-base lg:text-lg">
-              En el norte de Argentina, en la Localidad de Colonia Benítez,
-              Provincia de Chaco, nació en el año 2018 “Nina del Norte Alfajores
-              Artesanales”. ¿Por qué Nina del Norte? En memoria de mi querida
-              abuela italiana “Nina”, quien me transmitió recetas de
-              generaciones para fusionar y preparar los alfajores con productos
-              regionales de nuestra entorno natural, en especial del
-              IMPENETRABLE CHAQUEÑO:
-              (https://www.argentina.gob.ar/interior/ambiente/parquesnacionales/elimpenetrable),
-              como también ofrecer la mejor calidad en sabores variados con
-              infinidades de propiedades y beneficios: harina de algarroba,
-              fruta de guayaba, mango, vino, café y de otras regiones. Siendo
-              una emprendedora y madre de tres hermosos chicos, buscamos junto a
-              mi equipo perfeccionarnos y crear nuevos productos que disfruten
-              la familias del Mundo. Soy Marisel Torres y nos encontramos a
-              disposición de crear y hacer de los Alfajores más que un producto
-              delicioso.
+              En el norte de Argentina, en la localidad de Colonia Benítez,
+              provincia de Chaco, nació en el año 2018 “Nina del Norte Alfajores
+              Artesanales”. <br />
+              <br />
+              <strong>¿Por qué Nina del Norte?</strong> <br />
+              <br />
+              En memoria de mi querida abuela italiana
+              “Nina”, quien me transmitió recetas de generaciones para fusionar
+              y preparar los alfajores con productos regionales de nuestro
+              entorno natural, en especial del&nbsp;&nbsp;
+              <a
+                href="https://www.argentina.gob.ar/interior/ambiente/parquesnacionales/elimpenetrable"
+                className="text-blue-500 underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Impenetrable Chaqueño
+              </a>
+              ,
+              así como también ofrecer la mejor calidad en sabores variados con
+              infinidad de propiedades y beneficios: harina de algarroba, fruta
+              de guayaba, mango, vino, café y de otras regiones.<br />
+              <br />
+              Como emprendedora y madre de tres hermosos hijos,
+              busco junto a mi equipo perfeccionarnos y crear nuevos productos
+              que disfruten las familias del mundo. Soy Marisel Torres y estamos
+              a disposición para crear y hacer de los alfajores más que un
+              producto delicioso.
             </p>
           </div>
 

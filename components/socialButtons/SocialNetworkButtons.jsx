@@ -6,9 +6,9 @@ import React, { useState } from "react";
 const SocialNetworkButtons = () => {
   const [show, setShow] = useState(false);
   return (
-    <div className="fixed bottom-10 right-5 space-y-2 bg-white rounded-full p-0 m-0 flex flex-col justify-center items-center">
+    <div className="fixed bottom-10 right-5 space-y-2 bg-white rounded-full p-0 m-0 flex flex-col justify-center items-center sm:bottom-5 sm:right-5 sm:space-y-1">
       {show && (
-        <div className="flex flex-col justify-center items-center gap-2">
+        <div className="flex flex-col justify-center items-center gap-2 sm:gap-1">
           <Link
             target="_blank"
             onClick={() => setShow(false)}
